@@ -1,0 +1,19 @@
+{
+  "name": "recruitment-test-fullstack",
+  "version": "1.0.0",
+  "description": "Minnek test for full-stack developers recruitment challenge.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chriscoderdr/recruitment-test-fullstack.git"
+  },
+  "author": "Chris Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chriscoderdr/recruitment-test-fullstack/issues"
+  },
+  "homepage": "https://github.com/chriscoderdr/recruitment-test-fullstack#readme"
+}
