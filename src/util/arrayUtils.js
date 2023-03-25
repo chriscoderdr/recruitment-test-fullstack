@@ -1,21 +1,20 @@
-const isNotASpecialCaracter = (character) => {
-  const re = /[a-z0-9]/gi;
-  return re.test(character);
-};
+import { charUtils } from "./charUtils";
 
-const sortExcludingSpecialChars = (data, reverse) => {
+const sortExcludingSpecialChars = (data, reverse = false) => {
   const specialChars = data
     .slice()
-    .map((el, index) => (isNotASpecialCaracter(el) ? null : { el, index }))
+    .map((el, index) =>
+      charUtils.isNotASpecialCaracter(el) ? null : { el, index }
+    )
     .filter((el) => el != null);
 
   const nonSpecialChars = data
     .slice()
-    .filter((el) => isNotASpecialCaracter(el));
+    .filter((el) => charUtils.isNotASpecialCaracter(el));
 
-  const sortedNonSpecialChars = nonSpecialChars
-    .slice()
-    .sort((a, b) => (reverse ? -1 : a - b));
+  const sortedNonSpecialChars = reverse
+    ? nonSpecialChars.slice().sort((_a, _b) => -1)
+    : nonSpecialChars.slice().sort();
 
   let finalArray = sortedNonSpecialChars.slice();
 
