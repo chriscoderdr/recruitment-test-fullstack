@@ -1,3 +1,6 @@
+import * as statik from "node-static";
+import http from "http";
+
 import { arrayUtils } from "./util/arrayUtils";
 
 const task1 = () => {
@@ -44,3 +47,11 @@ const executeAllTasks = () => {
 };
 
 executeAllTasks();
+
+var file = new statik.Server('public');
+
+http
+  .createServer(function (req, res) {
+    file.serve(req, res);
+  })
+  .listen(8080);
