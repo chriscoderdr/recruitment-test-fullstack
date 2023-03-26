@@ -1,38 +1,116 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## How to run
 
-## Getting Started
+Task 1
 
-First, run the development server:
+Run `npm run task1`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Task 1 will be run and output printed to the console.
+
+Task 2 & 3
+
+Run `npm run start`
+
+Web server will be started at port 3000.
+
+[http://localhost:3000](http://localhost:3000)
+
+
+---
+
+
+
+<p align="center">
+  <a href="https://minnekdigital.com/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://assets.minnekdigital.com/logo-md.jpg">
+      <img alt="Minnek Logo" src="https://assets.minnekdigital.com/logo-md.jpg">
+    </picture>    
+  </a>
+</p>
+
+---
+
+# Recruitment Test for Full Stack Position
+
+- Please use real Github accounts, we want to check your contributions history. Since we use, create, and contribute to open source.
+- Everyone work with the same set of information, to let us fairly judge your work.
+- We are answering questions only when it's strictly necessary.
+- The test is designed in a way, that can confuse you or seems weird because we want to test you in a way worse environment than you will work on a daily basis. It's also not a representation of the tech stack we are using in real projects.
+- You need to create a repository on GitHub to commit your changes and share the repository URL with us when you are done.
+
+## Before you start
+
+- Fork this repository, it needs to stay on Github, publicly available.
+- Take in mind the User Experience UX. We are evaluating the usability of the user interface.
+- Be sure all the assets are in the project before sending.
+
+## Task 1
+
+From the following array, reverse it, but keep the special characters in the same position.
+
+```
+[n,2,&,a,l,9,$,q,47,i,a,j,b,z,%,8]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+In this case:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `&` must be in position 2
+- `$` must be in position 6
+- `%` must be in position 14
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The solution needs to be dynamic (if the special character's position changed, keep it as same).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Task 2
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+From the Dog API fetch the following data:
 
-## Learn More
+- List all the dog breeds
+- Show the dog image and name
+- Add hover state to dog image to show the first three dog sub-breeds
+- Don’t use any CSS library or framework
+- Follow the UI Mockup to complete this task.
 
-To learn more about Next.js, take a look at the following resources:
+![Task 2](/assets/task_2.jpg)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Mockup for Dog API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The grid needs to be responsive.
 
-## Deploy on Vercel
+## Task 3
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1 - Given the input data on a form, store the fields with multiple values in a database, please be sure to validate the form as well, input data must include:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Product Name
+- Price
+- Description
+- Product Image (not URL)
+
+2 - Create a user login and validate the user session
+
+3 - Read the database table data and show the product information to the logged-in user only
+
+4 - The product layout must be as a carousel of product list based on the mockup design below:
+
+![Task 3](/assets/task_3.jpg)
+
+You may use whatever you like to solve these problems Good luck 🤗
+
+## About
+
+<a href="https://minnekdigital.com/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://assets.minnekdigital.com/logo-sm.jpg">
+    <img alt="Minnek Logo" src="https://assets.minnekdigital.com/logo-sm.jpg">
+  </picture>
+</a>
+
+This project is maintained and funded by Minnek.
+
+We ❤️ open source and do our part in sharing our work with the community!
+See [our other projects][community] or [hire our team][hire] to help build your product.
+
+Want to join? [Check out our Jobs][jobs]!
+
+[community]: https://github.com/Minnek-Digital-Studio
+[hire]: https://minnekdigital.com/
+[jobs]: https://minnekdigital.com/careers
