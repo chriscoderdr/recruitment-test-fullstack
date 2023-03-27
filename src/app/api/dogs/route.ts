@@ -8,7 +8,7 @@ export async function GET(req: NextApiRequest) {
       data: data,
     })
   , {
-    status: 400,
+    status: 200,
     headers: {
       'content-type': 'application/json'
     }
