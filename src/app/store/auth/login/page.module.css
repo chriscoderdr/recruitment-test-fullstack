@@ -9,11 +9,3 @@
   background-repeat: no-repeat;
   background-color: rgb(69, 69, 117);
 }
-
-.login_container > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
-}

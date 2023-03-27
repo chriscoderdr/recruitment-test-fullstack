@@ -1,10 +1,16 @@
 import style from "./button.module.css";
 
-export const Button = ({ value, onClick }) => {
+type IButtonProps = {
+  value?: string;
+  onClick?: () => void;
+  type?: "submit" | "button";
+};
+
+export const Button = ({ value, onClick, type = "button" }: IButtonProps) => {
   return (
     <input
       className={style.button}
-      type="button"
+      type={type}
       value={value}
       onClick={onClick}
     />
