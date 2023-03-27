@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "./page.module.css";
 import { arrayUtils } from "../utils/arrayUtils";
 import { useState } from "react";
+import { Button } from "../components/button/button";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -92,18 +93,8 @@ export default function Task1ShowCase() {
               <h2>Run online</h2>
               <div>
                 <div>
-                  <input
-                    type="button"
-                    className={styles.button}
-                    value="Add input"
-                    onClick={onAddField}
-                  />
-                  <input
-                    type="button"
-                    className={styles.button}
-                    value="Run"
-                    onClick={onRun}
-                  />
+                  <Button value={"Add input"} onClick={onAddField} />
+                  <Button value={"Run"} onClick={onRun} />
                 </div>
                 <br />
                 <h3>Result</h3>
