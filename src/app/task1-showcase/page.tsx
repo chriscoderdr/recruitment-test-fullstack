@@ -1,10 +1,16 @@
+"use client";
+
 import { Inter } from "next/font/google";
 import styles from "./page.module.css";
 import { arrayUtils } from "../utils/arrayUtils";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default async function DogBreeds() {
+export default function Task1ShowCase() {
+  const [dynamicDataResult, setDynamicDataResult] = useState();
+  const [fields, setFields] = useState({});
+  const [fieldsCount, setFieldsCount] = useState(0);
   const testData = [
     "n",
     "2",
@@ -25,6 +31,28 @@ export default async function DogBreeds() {
   ];
 
   const result = arrayUtils.sortExcludingSpecialChars(testData, true);
+
+  const onAddField = () => {
+    console.log(fieldsCount);
+    setFieldsCount(fieldsCount + 1);
+  };
+
+  const onFieldChange = (index, value) => {
+    setFields({
+      ...fields,
+      [index]: value,
+    });
+  };
+
+  const onRun = () => {
+    console.log(fields);
+    const dynamicData = Object.values(fields);
+    const result = arrayUtils.sortExcludingSpecialChars(dynamicData, true);
+    setDynamicDataResult(result);
+  };
+
+  const fieldsArray = [...Array(fieldsCount)];
+
   return (
     <main className={inter.className}>
       <div className={styles.main}>
@@ -40,6 +68,8 @@ export default async function DogBreeds() {
             6 - `%` must be in position 14 The solution needs to be dynamic (if
             the special character's position changed, keep it as same).
           </p>
+
+          <div></div>
           <div className={styles.sections}>
             <div className={styles.section}>
               <h2>Result</h2>
@@ -52,6 +82,51 @@ export default async function DogBreeds() {
                 <br />
                 <code>npm run task1</code>
               </p>
+              <p>
+                Tests for this task can be run with:
+                <br />
+                <code>npm run tests</code>
+              </p>
+            </div>
+            <div className={styles.section}>
+              <h2>Run online</h2>
+              <div>
+                <div>
+                  <input
+                    type="button"
+                    className={styles.button}
+                    value="Add input"
+                    onClick={onAddField}
+                  />
+                  <input
+                    type="button"
+                    className={styles.button}
+                    value="Run"
+                    onClick={onRun}
+                  />
+                </div>
+                <br />
+                <h3>Result</h3>
+                {JSON.stringify(dynamicDataResult)}
+                <br />
+                <h3>Input</h3>
+                {fieldsArray.length > 0
+                  ? fieldsArray.map((_, index) => {
+                      return (
+                        <input
+                          className={styles.runner_input}
+                          key={index + ""}
+                          type="text"
+                          maxLength={1}
+                          placeholder={"Char" + (index + 1)}
+                          onChange={(event) =>
+                            onFieldChange(index, event.target.value)
+                          }
+                        />
+                      );
+                    })
+                  : ""}
+              </div>
             </div>
           </div>
         </div>
