@@ -1,3 +1,32 @@
+## How to run
+
+Task 1
+
+Run `npm run task1`
+
+Task 1 will be run and output printed to the console. Also can be found at the web.
+
+Task 2 & 3
+
+Run `npm run start`
+
+Web server will be started at port 3000.
+
+[http://localhost:3000](http://localhost:3000)
+
+Task 1 can be found online at [http://localhost:3000/task1-showcase](http://localhost:3000/task1-showcase)
+
+Task 2 can be found at [http://localhost:3000/dog-breeds](http://localhost:3000/dog-breeds)
+
+Menu with link to all task can be found at
+
+[http://localhost:3000/](http://localhost:3000/)
+
+
+---
+
+
+
 <p align="center">
   <a href="https://minnekdigital.com/">
     <picture>

@@ -1,6 +1,6 @@
-import { arrayUtils } from "./util/arrayUtils";
+import { arrayUtils } from "../utils/arrayUtils";
 
-const task1 = () => {
+export const task1 = () => {
   console.log("Task 1");
   printSeparationLine();
   console.log(`
@@ -39,8 +39,6 @@ const printSeparationLine = () => {
   console.log("--------------------------------------------");
 };
 
-const executeAllTasks = () => {
+export const executeAllTasks = () => {
   task1();
 };
-
-executeAllTasks();

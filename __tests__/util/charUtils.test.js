@@ -1,4 +1,4 @@
-import { charUtils } from "../../src/util/charUtils";
+import { charUtils } from "../../src/app/utils/charUtils.js";
 
 test("Any alphanumeric character must return true", () => {
   const alphaNumericChars = [

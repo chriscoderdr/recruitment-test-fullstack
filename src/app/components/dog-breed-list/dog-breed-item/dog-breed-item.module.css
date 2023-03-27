@@ -1,0 +1,57 @@
+.dog_list {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dog_item .dog_name {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.dog_item {
+  background-color: #ffffff;
+  text-align: center;
+  padding-bottom: 1.5em;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 1.5em;
+  color: #aa0000;
+  position: relative;
+  cursor: pointer;
+}
+
+.dog_item img {
+  max-width: 250px;
+  min-height: 100px;
+  border-radius: 1.5em;
+  object-fit: cover;
+}
+.dog_item > .title_container {
+  margin-bottom: 14px;
+  color: #c4c4c4;
+}
+
+.dog_item  .imageContainer {
+  position: relative;
+}
+
+.dog_item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.5em;
+  border-radius: 1.5em;
+  background-color: #000000aa;
+  color: #ffffff;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  transition: all 0.2s 0.1s ease-in-out;
+}
+
+.dog_item:hover .overlay {
+  transform: scale(1);
+}
