@@ -300,11 +300,6 @@ export const getDogBreeds = async () => {
       image: "https://images.dog.ceo/breeds/mexicanhairless/n02113978_1957.jpg",
     },
     {
-      name: "mix",
-      sub_breeds: [],
-      image: "https://images.dog.ceo/breeds/mix/mixed.noreandev.1.jpg",
-    },
-    {
       name: "mountain",
       sub_breeds: ["bernese", "swiss"],
       image:

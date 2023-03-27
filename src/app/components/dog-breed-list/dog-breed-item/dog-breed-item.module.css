@@ -25,7 +25,9 @@
 
 .dog_item img {
   max-width: 250px;
+  min-height: 100px;
   border-radius: 1.5em;
+  object-fit: cover;
 }
 .dog_item > .title_container {
   margin-bottom: 14px;
