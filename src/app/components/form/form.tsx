@@ -1,9 +1,20 @@
+import { FormEvent } from "react";
 import style from "./form.module.css";
 
-export const Form = ({ children, onSubmit }) => {
-  const submit = (e) => {
+type IFormProps = {
+  children: any;
+  onSubmit?: () => void;
+};
+
+export const Form = ({ children, onSubmit }: IFormProps) => {
+  const submit = (e: FormEvent) => {
     e.preventDefault();
+    onSubmit?.();
   };
 
-  return <form className={style.form} onSubmit={submit}>{children}</form>;
+  return (
+    <form className={style.form} onSubmit={submit}>
+      {children}
+    </form>
+  );
 };

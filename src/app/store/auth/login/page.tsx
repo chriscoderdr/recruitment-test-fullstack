@@ -12,13 +12,11 @@ export default () => {
 
   return (
     <div className={styles.login_container}>
-      <div>
-        <Form onSubmit={onSubmit}>
-          <TextField type={"text"} placeholder={"Username"} />
-          <TextField type={"password"} placeholder={"Password"} />
-          <Button type="submit" value={"Login"} />
-        </Form>
-      </div>
+      <Form onSubmit={onSubmit}>
+        <TextField type={"text"} placeholder={"Username"} />
+        <TextField type={"password"} placeholder={"Password"} />
+        <Button type="submit" value={"Login"} />
+      </Form>
     </div>
   );
 };

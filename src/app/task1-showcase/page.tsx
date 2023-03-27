@@ -38,7 +38,7 @@ export default function Task1ShowCase() {
     setFieldsCount(fieldsCount + 1);
   };
 
-  const onFieldChange = (index, value) => {
+  const onFieldChange = (index: number, value: string) => {
     setFields({
       ...fields,
       [index]: value,

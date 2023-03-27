@@ -1,15 +1,20 @@
+import { DogBreed } from "@components/app/models/models";
 import { Fragment } from "react";
 import styles from "./dog-breed-item.module.css";
 
-export const DogBreedItem = ({ dog }) => {
+type IDogBreedItemProps = {
+  dogBreed: DogBreed
+}
+
+export const DogBreedItem = ({ dogBreed }: IDogBreedItemProps) => {
   return (
     <div className={styles.dog_item}>
       <div className={styles.imageContainer}>
-        <img src={dog.image} />
+        <img src={dogBreed.image} />
         <div className={styles.overlay}>
           <ul>
-            {dog.sub_breeds.length > 0 ? (
-              dog.sub_breeds.slice(0, 4).map((sub_breed) => {
+            {dogBreed.sub_breeds.length > 0 ? (
+              dogBreed.sub_breeds.slice(0, 4).map((sub_breed) => {
                 return <li>{sub_breed}</li>;
               })
             ) : (
@@ -20,7 +25,7 @@ export const DogBreedItem = ({ dog }) => {
           </ul>
         </div>
       </div>
-      <p className={styles.dog_name}>{dog.name}</p>
+      <p className={styles.dog_name}>{dogBreed.name}</p>
     </div>
   );
 };
