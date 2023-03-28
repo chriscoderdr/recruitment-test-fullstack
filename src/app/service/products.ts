@@ -1,5 +1,5 @@
 import { Product } from "@prisma/client";
-import { CreateProductEntity, DogBreed } from "../models/models";
+import { ApiResponse, CreateProductEntity, DogBreed } from "../models/models";
 
 export const getProducts = async (): Promise<Product[] | undefined> => {
   const resp = await fetch("http://localhost:3000/api/store/products", {
@@ -15,7 +15,7 @@ export const getProducts = async (): Promise<Product[] | undefined> => {
 
 export const createProduct = async (
   product: CreateProductEntity
-): Promise<Product> => {
+): Promise<ApiResponse> => {
   const formData = new FormData();
   formData.append("name", product.name);
   formData.append("description", product.description);
@@ -23,14 +23,21 @@ export const createProduct = async (
   formData.append("image", product.image);
   const resp = await fetch("http://localhost:3000/api/store/product", {
     method: "put",
-    body: formData
+    body: formData,
   });
   try {
     const data = await resp.json();
     console.log(data);
-    return data.data;
+    return data as ApiResponse;
   } catch (e) {
     console.error(e);
+    return {
+      errors: [
+        {
+          message: e,
+        },
+      ],
+    } as ApiResponse;
   }
 };
 

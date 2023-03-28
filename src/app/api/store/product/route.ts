@@ -84,6 +84,9 @@ export async function PUT(req: NextRequest) {
     }
   } catch (e) {
     console.error(e);
+    errors.push({
+      message: e,
+    } as ApiError);
   }
   const response = NextResponse.json({
     errors,

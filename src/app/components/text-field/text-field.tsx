@@ -9,6 +9,7 @@ type ITextFieldProps = {
   required?: boolean;
   onBlur?: (value: string) => void;
   step?: string;
+  readOnly?: boolean
 };
 
 export const TextField = ({
@@ -18,6 +19,7 @@ export const TextField = ({
   required,
   onBlur,
   step,
+  readOnly
 }: ITextFieldProps) => {
   const change = (event: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
@@ -39,6 +41,7 @@ export const TextField = ({
       onBlur={blur}
       required={required}
       step={step}
+      readOnly={readOnly}
     />
   );
 };
