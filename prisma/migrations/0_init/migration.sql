@@ -17,3 +17,6 @@ CREATE TABLE "Product" (
     CONSTRAINT "Product_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
+-- CreateIndex
+CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
+
