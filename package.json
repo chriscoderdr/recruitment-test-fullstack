@@ -14,6 +14,7 @@
     "task1": "cross-env TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} ts-node src/app/cli/cli.ts"
   },
   "dependencies": {
+    "@next/font": "^13.2.4",
     "@prisma/client": "^4.11.0",
     "@types/cookie": "^0.5.1",
     "@types/debounce": "^1.2.1",
