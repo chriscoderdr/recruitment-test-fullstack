@@ -8,4 +8,5 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: rgb(69, 69, 117);
+  box-sizing: border-box;
 }
