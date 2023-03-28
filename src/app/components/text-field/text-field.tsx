@@ -3,11 +3,12 @@ import styles from "./text-field.module.css";
 import { debounce } from "debounce";
 
 type ITextFieldProps = {
-  type?: "text" | "password";
+  type?: "text" | "password" | "number";
   placeholder?: string;
   onChange?: (value: string) => void;
   required?: boolean;
   onBlur?: (value: string) => void;
+  step?: string;
 };
 
 export const TextField = ({
@@ -16,6 +17,7 @@ export const TextField = ({
   onChange,
   required,
   onBlur,
+  step,
 }: ITextFieldProps) => {
   const change = (event: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
@@ -36,6 +38,7 @@ export const TextField = ({
       onChange={change}
       onBlur={blur}
       required={required}
+      step={step}
     />
   );
 };

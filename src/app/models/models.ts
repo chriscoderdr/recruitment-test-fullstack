@@ -20,18 +20,24 @@ export type EncryptedCredentials = {
   passwordHash: string;
 };
 
-
 export type AuthResult = {
   validCredentials: boolean;
   user?: User;
-}
+};
 
 export type ApiError = {
   message: string;
   statusCode: number;
-}
+};
 
 export type ApiResponse = {
   data?: any;
-  errors?: ApiError[]
-}
+  errors?: ApiError[];
+};
+
+export type CreateProductEntity = {
+  name: string;
+  price: number;
+  description: string;
+  image: File;
+};
