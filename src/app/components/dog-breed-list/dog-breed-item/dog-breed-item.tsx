@@ -1,6 +1,4 @@
 import { DogBreed } from "@components/app/models/models";
-import { Fragment } from "react";
-import Image from "next/image";
 import styles from "./dog-breed-item.module.css";
 
 type IDogBreedItemProps = {
@@ -11,7 +9,7 @@ export const DogBreedItem = ({ dogBreed }: IDogBreedItemProps) => {
   return (
     <div className={styles.dog_item}>
       <div className={styles.imageContainer}>
-        <Image src={dogBreed.image} alt="Dog breed image" />
+        <img src={dogBreed.image} alt="Dog breed image" />
         <div className={styles.overlay}>
           {dogBreed.sub_breeds.length > 0 && (
             <ul>
