@@ -23,7 +23,7 @@ export const ProductCarousel = ({ products }: IProductListProps) => {
 
   return (
     <>
-      {firstItem && productList && productList?.length > 0 && (
+      {firstItem && (
         <Carousel
           gap={16}
           firstElement={() => (
@@ -32,7 +32,7 @@ export const ProductCarousel = ({ products }: IProductListProps) => {
         >
           {productList &&
             productList.length > 0 &&
-            productList.map((product, index) => (
+            productList.map((product) => (
               <ProductItem key={product.id} product={product} />
             ))}
         </Carousel>

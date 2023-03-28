@@ -2,103 +2,36 @@ import { Product } from "@prisma/client";
 import { Decimal } from "@prisma/client/runtime";
 import { ProductCarousel } from "../components/product-carousel/product-carousel";
 import styles from "./page.module.css";
+import { cookies } from "next/headers";
+import { charUtils } from "@app/utils/charUtils";
 
-const Store = () => {
-  const products: Product[] = [
-    {
-      id: 1,
-      authorId: 2,
-      name: "Something 1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-      image: "https://placehold.it/500x500",
-      price: new Decimal(9.99),
-    },
-    {
-        id: 2,
-        authorId: 2,
-        name: "Something 2",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-      {
-        id: 3,
-        authorId: 2,
-        name: "Something 3",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-      {
-        id: 4,
-        authorId: 2,
-        name: "Something 4",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-      {
-        id: 5,
-        authorId: 2,
-        name: "Something 5",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-      {
-        id: 6,
-        authorId: 2,
-        name: "Something 6",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-      {
-        id: 7,
-        authorId: 2,
-        name: "Something 7",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-      {
-        id: 8,
-        authorId: 2,
-        name: "Something 8",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-      {
-        id: 9,
-        authorId: 2,
-        name: "Something 9",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-      {
-        id: 10,
-        authorId: 2,
-        name: "Something 10",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
-        image: "https://placehold.it/500x500",
-        price: new Decimal(9.99),
-      },
-  ];
+import { redirect } from "next/navigation";
+import { LogoutContainer } from "@app/containers/logout_container";
+import { apiAuthService } from "@app/api/service/auth";
+import { productsService } from "@app/service/products";
+import { ProductsContainer } from "@app/containers/products_container";
+
+const Store = async () => {
+  const cookieStore = cookies();
+  const authSession = await apiAuthService.authSession(cookieStore);
+  if (!authSession.validCredentials) {
+    return redirect("/store/auth/login");
+  }
+
+  const username = authSession?.user
+    ? charUtils.capitalize(authSession.user.username)
+    : "";
+
   return (
-    <div className={styles.main_container}>
-      <ProductCarousel products={products} />
+    <div>
+      <div className={styles.title_container}>
+        <h1>Bienvenido {username}</h1>
+        <h2>Productos</h2>
+        <LogoutContainer />
+      </div>
+      <div className={styles.main_container}>
+        <ProductsContainer />
+      </div>
     </div>
   );
 };
