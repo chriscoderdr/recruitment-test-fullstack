@@ -5,14 +5,14 @@ type ITextFieldProps = {
   type?: "text" | "password";
   placeholder?: string;
   onChange?: (value: string) => void;
-  required?: boolean
+  required?: boolean;
 };
 
 export const TextField = ({
   type = "text",
   placeholder,
   onChange,
-  required
+  required,
 }: ITextFieldProps) => {
   const change = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(event.target.value);

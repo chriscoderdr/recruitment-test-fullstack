@@ -1,7 +1,7 @@
 import { Credentials } from "@components/app/models/models";
 
 const login = async (username: string, password: string) => {
-  return fetch("store/user/login", {
+  return fetch("/api/store/user/login", {
     method: "post",
     headers: {
       "content-type": "application/json",

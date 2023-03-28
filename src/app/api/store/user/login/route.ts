@@ -1,14 +1,16 @@
-import { dogService } from "@components/app/service/dogs";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export async function GET(req: NextApiRequest) {
-  const data = await dogService.getDogBreeds();
+export async function POST(req: NextApiRequest) {
   const response = new Response(
     JSON.stringify({
-      data: data,
+      data: {
+        errors: [
+          'dd'
+        ]
+      },
     })
   , {
-    status: 200,
+    status: 400,
     headers: {
       'content-type': 'application/json'
     }
