@@ -3,7 +3,10 @@ from node:18-alpine as dependencies
 WORKDIR /app
 
 COPY package.json ./
+
+RUN npm rebuild bcrypt 
 RUN yarn
+
 
 
 FROM node:18-alpine as build
