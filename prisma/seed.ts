@@ -8,7 +8,7 @@ const main = async () => {
     where: { username: "anthuan" },
     update: {},
     create: {
-      ...(await apiAuthService.encryptPassword("Montecristi2022")),
+      ...(await apiAuthService.encryptPassword("Montecristi2022")) as any,
       username: "anthuan",
     },
   });
@@ -17,7 +17,7 @@ const main = async () => {
     where: { username: "chris" },
     update: {},
     create: {
-        ...(await apiAuthService.encryptPassword("Medallo1990")),
+        ...(await apiAuthService.encryptPassword("Medallo1990")) as any,
       username: "chris",
     },
   });

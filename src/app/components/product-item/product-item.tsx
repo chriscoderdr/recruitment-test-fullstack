@@ -8,27 +8,24 @@ type IProductItemProps = {
   className?: string;
 };
 
-// eslint-disable-next-line react/display-name
-export const ProductItem = React.forwardRef(
-  (
-    { product, style, className }: IProductItemProps,
-    ref: Ref<HTMLDivElement>
-  ) => {
-    return (
-      <div
-        className={`${styles.product_item} ${className}`}
-        style={style}
-        ref={ref}
-      >
-        <img
-          className={styles.product_image}
-          src={"https://placehold.it/200x200"}
-          alt="product image"
-        />
-        <p className={styles.product_name}>{product?.name}</p>
-        <p className={styles.product_price}>{product?.price + ""}</p>
-        <p className={styles.product_description}>{product?.description}</p>
-      </div>
-    );
-  }
-);
+export const ProductItem = React.forwardRef(function ProductItem(
+  { product, style, className }: IProductItemProps,
+  ref: Ref<HTMLDivElement>
+) {
+  return (
+    <div
+      className={`${styles.product_item} ${className}`}
+      style={style}
+      ref={ref}
+    >
+      <img
+        className={styles.product_image}
+        src={"https://placehold.it/200x200"}
+        alt="product image"
+      />
+      <p className={styles.product_name}>{product?.name}</p>
+      <p className={styles.product_price}>{product?.price + ""}</p>
+      <p className={styles.product_description}>{product?.description}</p>
+    </div>
+  );
+});
