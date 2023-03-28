@@ -3,7 +3,7 @@ import React, { CSSProperties, Ref } from "react";
 import styles from "./product-item.module.css";
 
 type IProductItemProps = {
-  product: Product;
+  product?: Product;
   style?: CSSProperties;
   className?: string;
 };
@@ -25,12 +25,9 @@ export const ProductItem = React.forwardRef(
           src={"https://placehold.it/200x200"}
           alt="product image"
         />
-        <p className={styles.product_name}>Name</p>
-        <p className={styles.product_price}>12.0</p>
-        <p className={styles.product_description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-          cursus eu sem ac commodo. Integer porttitor ullamcorper tristique.
-        </p>
+        <p className={styles.product_name}>{product?.name}</p>
+        <p className={styles.product_price}>{product?.price + ""}</p>
+        <p className={styles.product_description}>{product?.description}</p>
       </div>
     );
   }

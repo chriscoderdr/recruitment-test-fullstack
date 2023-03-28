@@ -8,7 +8,7 @@ const Store = () => {
     {
       id: 1,
       authorId: 2,
-      name: "Something",
+      name: "Something 1",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
       image: "https://placehold.it/500x500",
@@ -17,7 +17,7 @@ const Store = () => {
     {
         id: 2,
         authorId: 2,
-        name: "Something",
+        name: "Something 2",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
@@ -26,7 +26,7 @@ const Store = () => {
       {
         id: 3,
         authorId: 2,
-        name: "Something",
+        name: "Something 3",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
@@ -35,7 +35,7 @@ const Store = () => {
       {
         id: 4,
         authorId: 2,
-        name: "Something",
+        name: "Something 4",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
@@ -44,7 +44,7 @@ const Store = () => {
       {
         id: 5,
         authorId: 2,
-        name: "Something",
+        name: "Something 5",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
@@ -53,7 +53,7 @@ const Store = () => {
       {
         id: 6,
         authorId: 2,
-        name: "Something",
+        name: "Something 6",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
@@ -62,7 +62,7 @@ const Store = () => {
       {
         id: 7,
         authorId: 2,
-        name: "Something",
+        name: "Something 7",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
@@ -71,7 +71,7 @@ const Store = () => {
       {
         id: 8,
         authorId: 2,
-        name: "Something",
+        name: "Something 8",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
@@ -80,7 +80,7 @@ const Store = () => {
       {
         id: 9,
         authorId: 2,
-        name: "Something",
+        name: "Something 9",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
@@ -89,7 +89,7 @@ const Store = () => {
       {
         id: 10,
         authorId: 2,
-        name: "Something",
+        name: "Something 10",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus eu sem ac commodo. Integer porttitor ullamcorper tristique. Proin et ligula eu velit tincidunt bibendum sit amet et mauris. ",
         image: "https://placehold.it/500x500",
