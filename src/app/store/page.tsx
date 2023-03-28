@@ -1,6 +1,6 @@
 import { Product } from "@prisma/client";
 import { Decimal } from "@prisma/client/runtime";
-import { ProductList } from "../components/product-list/product-list";
+import { ProductCarousel } from "../components/product-carousel/product-carousel";
 import styles from "./page.module.css";
 
 const Store = () => {
@@ -98,7 +98,7 @@ const Store = () => {
   ];
   return (
     <div className={styles.main_container}>
-      <ProductList products={products} />
+      <ProductCarousel products={products} />
     </div>
   );
 };

@@ -8,6 +8,7 @@ type IProductItemProps = {
   className?: string;
 };
 
+// eslint-disable-next-line react/display-name
 export const ProductItem = React.forwardRef(
   (
     { product, style, className }: IProductItemProps,

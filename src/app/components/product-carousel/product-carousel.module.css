@@ -12,24 +12,7 @@
   cursor: pointer;
 }
 
-.icon {
-  display: block;
-  padding: 0;
-  border: 0;
-  height: 50px;
-  width: 50px;
-  background-size: contain;
-}
 
-.icon_backward {
-  background: url("/backward.png");
-  background-size: contain;
-}
-
-.icon_forward {
-  background: url("/forward.png");
-  background-size: contain;
-}
 
 .controls {
   position: absolute;

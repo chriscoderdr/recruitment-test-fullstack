@@ -1,21 +1,19 @@
 "use client";
 
 import { Product } from "@prisma/client";
-import styles from "./product-list.module.css";
-import { ProductItem } from "./product-item.tsx/product-item";
+import styles from "./product-carousel.module.css";
+import { ProductItem } from "./product-item/product-item";
 import { useEffect, useRef, useState } from "react";
-import { useWindowDimensions } from "@components/app/hooks/dimensions";
+import { Icon } from "../icon/icon";
 
 type IProductListProps = {
   products: Product[];
 };
 
-export const ProductList = ({ products }: IProductListProps) => {
+export const ProductCarousel = ({ products }: IProductListProps) => {
   const [offset, setOffset] = useState(0);
 
   const [pause, setPause] = useState(false);
-
-  const [direction, setDirection] = useState(-1);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -73,7 +71,7 @@ export const ProductList = ({ products }: IProductListProps) => {
   });
 
   const getItemPosition = (index: number) => {
-    return offset * direction;
+    return offset * -1;
   };
 
   const onMouseOver = () => {
@@ -121,14 +119,8 @@ export const ProductList = ({ products }: IProductListProps) => {
           />
         ))}
       <div className={styles.controls}>
-        <span
-          className={`${styles.icon} ${styles.icon_backward}`}
-          onClick={onMoveBackward}
-        />
-        <span
-          className={`${styles.icon} ${styles.icon_forward}`}
-          onClick={onMoveForward}
-        />
+        <Icon icon="backward" onClick={onMoveBackward} />
+        <Icon icon="forward" onClick={onMoveForward} />
       </div>
     </div>
   );
