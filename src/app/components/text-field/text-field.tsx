@@ -19,7 +19,7 @@ export const TextField = ({
 }: ITextFieldProps) => {
   const change = (event: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
-      debounce(() => onChange?.(event.target.value), 300);
+      debounce(() => onChange?.(event.target.value), 300)();
     }
   };
 

@@ -34,7 +34,6 @@ export default function Task1ShowCase() {
   const result = arrayUtils.sortExcludingSpecialChars(testData, true);
 
   const onAddField = () => {
-    console.log(fieldsCount);
     setFieldsCount(fieldsCount + 1);
   };
 
@@ -46,7 +45,6 @@ export default function Task1ShowCase() {
   };
 
   const onRun = () => {
-    console.log(fields);
     const dynamicData: string[] = Object.values(fields);
     const result = arrayUtils.sortExcludingSpecialChars(dynamicData, true);
     setDynamicDataResult(result);

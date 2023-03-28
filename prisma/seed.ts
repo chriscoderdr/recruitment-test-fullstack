@@ -1,6 +1,5 @@
-import { authService } from "../src/app/service/auth";
 import { PrismaClient } from "@prisma/client";
-import { apiAuthService } from "@components/app/api/service/auth";
+import { apiAuthService } from "../src/app/api/service/auth";
 
 const prisma = new PrismaClient();
 

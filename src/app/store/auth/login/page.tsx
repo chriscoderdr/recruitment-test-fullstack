@@ -14,20 +14,24 @@ const Login = () => {
 
   const onSubmit = () => {
     resetForm();
-    authService.login(username, password).then((res) => {
-      if (res.ok) {
-        
-      } else {
-        setErrors([{message: res.statusText }]);
-      }
-    }).catch((err) => {
-      setErrors([{message: err }]);
-    });
+    authService
+      .login(username, password)
+      .then((res) => {
+        if (res.ok) {
+        } else {
+          res.json().then((data) => {
+            setErrors(data.errors);
+          });
+        }
+      })
+      .catch((err) => {
+        setErrors([{ message: err }]);
+      });
   };
 
   const resetForm = () => {
     setErrors([]);
-  }
+  };
 
   const onUsernameChange = (value: string) => {
     setUsername(value);
@@ -36,7 +40,6 @@ const Login = () => {
   const onPasswordChange = (value: string) => {
     setPassword(value);
   };
-
 
   return (
     <div className={styles.login_container}>
@@ -62,6 +65,5 @@ const Login = () => {
     </div>
   );
 };
-
 
 export default Login;

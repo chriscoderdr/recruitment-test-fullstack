@@ -1,3 +1,5 @@
+import { User } from "@prisma/client";
+
 export type DogBreed = {
   name: string;
   sub_breeds: string[];
@@ -17,3 +19,19 @@ export type EncryptedCredentials = {
   passwordSalt: string;
   passwordHash: string;
 };
+
+
+export type AuthResult = {
+  validCredentials: boolean;
+  user?: User;
+}
+
+export type ApiError = {
+  message: string;
+  statusCode: number;
+}
+
+export type ApiResponse = {
+  data?: any;
+  errors?: ApiError[]
+}
