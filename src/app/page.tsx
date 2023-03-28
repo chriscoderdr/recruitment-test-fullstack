@@ -16,7 +16,14 @@ export default async function Home() {
           <a href="/dog-breeds">Task 2</a>
         </li>
         <li>
-          <a href="/dog-breeds">Task 3</a>
+          <a href="/store/admin">Task 3 - Form</a>
+        </li>
+        <li>
+          <a href="/store">Task 3 - Carousel</a>
+        </li>
+
+        <li>
+          <a href="/store/auth/login">Task 3 - Login</a>
         </li>
       </ul>
     </main>
