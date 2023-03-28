@@ -7,7 +7,6 @@ export const getProducts = async (): Promise<Product[] | undefined> => {
   });
   try {
     const data = await resp.json();
-    console.log(data);
     return data.data;
   } catch (e) {
     console.error(e);
@@ -24,6 +23,9 @@ export const createProduct = async (
   const resp = await fetch("http://localhost:3000/api/store/product", {
     method: "put",
     body: formData,
+    headers: {
+      "content-type": "multipart/form-data",
+    },
   });
   try {
     const data = await resp.json();

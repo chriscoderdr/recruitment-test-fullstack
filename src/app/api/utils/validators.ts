@@ -45,17 +45,13 @@ export const validateFields = (
 ): ApiError[] => {
   let errors: ApiError[] = [];
   validations.forEach((field) => {
-    console.log(field.validators);
     field.validators.forEach((validator) => {
       const error = validator(field.fieldName, field.fieldValue);
-      console.log('klk', error);
       if (error !== false) {
         errors.push(error as ApiError);
       }
-      console.log({errors})
     });
   });
-  console.log('TESTING', errors);
   return errors;
 };
 

@@ -22,7 +22,6 @@ const Admin = () => {
   };
 
   const onCreateProduct = () => {
-    console.log({ image, name, description, price });
     if (name && description && price && image) {
       productsService
         .createProduct({
