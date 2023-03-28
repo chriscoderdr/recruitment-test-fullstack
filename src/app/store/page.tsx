@@ -15,7 +15,7 @@ const Store = () => {
       price: new Decimal(9.99),
     },
     {
-        id: 1,
+        id: 2,
         authorId: 2,
         name: "Something",
         description:
@@ -24,7 +24,7 @@ const Store = () => {
         price: new Decimal(9.99),
       },
       {
-        id: 1,
+        id: 3,
         authorId: 2,
         name: "Something",
         description:
@@ -33,7 +33,7 @@ const Store = () => {
         price: new Decimal(9.99),
       },
       {
-        id: 1,
+        id: 4,
         authorId: 2,
         name: "Something",
         description:
@@ -42,7 +42,7 @@ const Store = () => {
         price: new Decimal(9.99),
       },
       {
-        id: 1,
+        id: 5,
         authorId: 2,
         name: "Something",
         description:
@@ -51,7 +51,7 @@ const Store = () => {
         price: new Decimal(9.99),
       },
       {
-        id: 1,
+        id: 6,
         authorId: 2,
         name: "Something",
         description:
@@ -60,7 +60,7 @@ const Store = () => {
         price: new Decimal(9.99),
       },
       {
-        id: 1,
+        id: 7,
         authorId: 2,
         name: "Something",
         description:
@@ -69,7 +69,7 @@ const Store = () => {
         price: new Decimal(9.99),
       },
       {
-        id: 1,
+        id: 8,
         authorId: 2,
         name: "Something",
         description:
@@ -78,7 +78,7 @@ const Store = () => {
         price: new Decimal(9.99),
       },
       {
-        id: 1,
+        id: 9,
         authorId: 2,
         name: "Something",
         description:
@@ -87,7 +87,7 @@ const Store = () => {
         price: new Decimal(9.99),
       },
       {
-        id: 1,
+        id: 10,
         authorId: 2,
         name: "Something",
         description:
