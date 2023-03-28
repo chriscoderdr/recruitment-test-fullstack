@@ -1,5 +1,5 @@
-import { arrayUtils } from "../../src/app/utils/arrayUtils.js";
-import { charUtils } from "../../src/app/utils/charUtils.js";
+import { arrayUtils } from "../../src/app/utils/arrayUtils";
+import { charUtils } from "../../src/app/utils/charUtils";
 
 test("Test that normal array is reversed", () => {
   const data = [

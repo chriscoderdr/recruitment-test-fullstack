@@ -1,12 +1,17 @@
 import { charUtils } from "./charUtils";
 
-const sortExcludingSpecialChars = (data, reverse = false) => {
-  const specialChars = data
+type SpecialChar = {
+  index: number;
+  el: string;
+};
+
+const sortExcludingSpecialChars = (data: string[], reverse = false) => {
+  const specialChars: SpecialChar[] = data
     .slice()
-    .map((el, index) =>
+    .map((el: string, index: number) =>
       charUtils.isNotASpecialCaracter(el) ? null : { el, index }
     )
-    .filter((el) => el != null);
+    .filter((el: any) => el != null) as SpecialChar[];
 
   const nonSpecialChars = data
     .slice()
