@@ -8,7 +8,7 @@ Task 1 will be run and output printed to the console. Also can be found at the w
 
 Task 2 & 3
 
-Run `npm run start`
+Run `npx prisma generate && npm build && npm run start`
 
 Web server will be started at port 3000.
 
@@ -23,6 +23,9 @@ Menu with link to all task can be found at
 [http://localhost:3000/](http://localhost:3000/)
 
 Task 3 can be found at [http://localhost:3000/store/admin](http://localhost:3000/store/admin)
+
+## Docker 
+To run with docker easiest way is to run `./run_docker.sh` file at the root directory.
 
 ---
 

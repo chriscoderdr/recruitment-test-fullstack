@@ -53,8 +53,8 @@ const authenticate = async (
       validCredentials: true,
       user: {
         ...user,
-        passwordHash: undefined,
-        passwordSalt: undefined,
+        passwordHash: '',
+        passwordSalt: '',
       },
     };
   }
@@ -67,8 +67,8 @@ const generateToken = async (user: User) => {
   return jwt.sign(
     {
       ...user,
-      passwordHash: undefined,
-      passwordSalt: undefined,
+      passwordHash: '',
+      passwordSalt: '',
     },
     "NOT_READY_FOR_PRODUCTION"
   );

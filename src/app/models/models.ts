@@ -16,8 +16,8 @@ export type FormFieldError = {
 };
 
 export type EncryptedCredentials = {
-  passwordSalt: string;
-  passwordHash: string;
+  passwordSalt?: string;
+  passwordHash?: string;
 };
 
 export type AuthResult = {

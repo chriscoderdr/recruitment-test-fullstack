@@ -105,7 +105,7 @@ const Admin = () => {
               onChange={onChangeImage}
               required
               readOnly={inProgress}
-              onClick={onFileClick}
+              onClick={onFileClick as any}
             />
           </label>
           <br />
