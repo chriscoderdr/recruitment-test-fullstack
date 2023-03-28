@@ -55,17 +55,17 @@ export async function PUT(req: NextRequest) {
             authorId: (await user).id,
           },
         });
-        const path = "https://localhost:3000/";
-        const imagePath = `public/uploads/products/${newProduct.id}.png`;
+        const pathPrefix = 'public/'
+        const imagePath = `uploads/products/${newProduct.id}.png`;
         await dbService.getDB().product.update({
           where: { id: newProduct.id },
           data: {
             image: imagePath,
           },
         });
-        newProduct.image = path + imagePath;
+        newProduct.image = imagePath.split('public')[1];
         const file = image as File;
-        fs.writeFileSync(imagePath, Buffer.from(await file.arrayBuffer()));
+        fs.writeFileSync(pathPrefix + imagePath, Buffer.from(await file.arrayBuffer()));
         return NextResponse.json({
           data: newProduct,
         } as ApiResponse);
