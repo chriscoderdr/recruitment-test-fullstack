@@ -13,6 +13,10 @@ type IProductListProps = {
 export const ProductList = ({ products }: IProductListProps) => {
   const [offset, setOffset] = useState(0);
 
+  const [pause, setPause] = useState(false);
+
+  const [direction, setDirection] = useState(-1);
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const itemRef = useRef<HTMLDivElement>(null);
@@ -45,7 +49,10 @@ export const ProductList = ({ products }: IProductListProps) => {
 
   const updateOffset = (newOffset: number) => {
     let offset = newOffset;
-    if (newOffset > getItemWidth() * getItemsPerPage() * (totalOfPages() - 1)) {
+    if (
+      newOffset > getItemWidth() * getItemsPerPage() * (totalOfPages() - 1) ||
+      newOffset < 0
+    ) {
       offset = 0;
     }
     setOffset(offset);
@@ -53,7 +60,9 @@ export const ProductList = ({ products }: IProductListProps) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      updateOffset(offset + getItemWidth());
+      if (!pause) {
+        updateOffset(offset + getItemWidth());
+      }
     }, 1600);
 
     return () => {
@@ -64,11 +73,32 @@ export const ProductList = ({ products }: IProductListProps) => {
   });
 
   const getItemPosition = (index: number) => {
-    return offset * -1;
+    return offset * direction;
+  };
+
+  const onMouseOver = () => {
+    setPause(true);
+  };
+
+  const onMouseLeave = () => {
+    setPause(false);
+  };
+
+  const onMoveForward = () => {
+    updateOffset(offset + getItemWidth());
+  };
+
+  const onMoveBackward = () => {
+    updateOffset(offset - getItemWidth());
   };
 
   return (
-    <div className={styles.product_list} ref={containerRef}>
+    <div
+      className={styles.product_list}
+      ref={containerRef}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
+    >
       {firstItem && (
         <ProductItem
           ref={itemRef}
@@ -90,6 +120,16 @@ export const ProductList = ({ products }: IProductListProps) => {
             }}
           />
         ))}
+      <div className={styles.controls}>
+        <span
+          className={`${styles.icon} ${styles.icon_backward}`}
+          onClick={onMoveBackward}
+        />
+        <span
+          className={`${styles.icon} ${styles.icon_forward}`}
+          onClick={onMoveForward}
+        />
+      </div>
     </div>
   );
 };
