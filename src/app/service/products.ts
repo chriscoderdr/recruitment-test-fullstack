@@ -23,10 +23,7 @@ export const createProduct = async (
   formData.append("image", product.image);
   const resp = await fetch("http://localhost:3000/api/store/product", {
     method: "put",
-    body: formData,
-    headers: {
-      "content-type": "multipart/form-data",
-    },
+    body: formData
   });
   try {
     const data = await resp.json();
