@@ -4,7 +4,7 @@ import { Button } from "@app/components/button/button";
 import { TextField } from "@app/components/text-field/text-field";
 import { Form } from "@app/components/form/form";
 import { authService } from "@app/service/auth";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FormFieldError } from "@app/models/models";
 import { useRouter } from "next/navigation";
 import { productsService } from "@app/service/products";
@@ -13,7 +13,8 @@ const Admin = () => {
   const [image, setImage] = useState<File>();
   const [name, setName] = useState<string>();
   const [description, setDescription] = useState<string>();
-  const [price, setPrice] = useState<number>();
+  const [price, setPrice] = useState<string>();
+  const formRef = useRef<HTMLFormElement>();
 
   const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -23,11 +24,12 @@ const Admin = () => {
 
   const onCreateProduct = () => {
     if (name && description && price && image) {
+      const parsedPrice = Number.parseFloat(price);
       productsService
         .createProduct({
           name,
           description,
-          price,
+          price: parsedPrice,
           image,
         })
         .then((resp) => {})
@@ -38,7 +40,7 @@ const Admin = () => {
   return (
     <div className={styles.container}>
       <div>
-        <Form onSubmit={onCreateProduct}>
+        <Form onSubmit={onCreateProduct} ref={formRef}>
           <h1>Add a product</h1>
           <TextField placeholder="Name" onChange={setName} required />
           <TextField

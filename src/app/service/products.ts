@@ -17,9 +17,10 @@ export const createProduct = async (
   product: CreateProductEntity
 ): Promise<Product> => {
   const formData = new FormData();
-  Object.entries(product).forEach((entry) => {
-    formData.append(entry[0], entry[1] as string);
-  });
+  formData.append("name", product.name);
+  formData.append("description", product.description);
+  formData.append("price", product.price + "");
+  formData.append("image", product.image);
   const resp = await fetch("http://localhost:3000/api/store/product", {
     method: "put",
     body: formData,
