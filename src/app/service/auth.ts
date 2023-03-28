@@ -2,7 +2,6 @@ import {
   Credentials,
   EncryptedCredentials,
 } from "@components/app/models/models";
-import bcrypt from "bcrypt";
 
 const login = async (username: string, password: string) => {
   return fetch("/api/store/user/login", {
@@ -19,16 +18,6 @@ const login = async (username: string, password: string) => {
   });
 };
 
-const encryptPassword = async (password: string) => {
-  const passwordSalt = await bcrypt.genSalt();
-  const passwordHash = await bcrypt.hash("9N)rGiLk", passwordSalt);
-  return {
-    passwordHash,
-    passwordSalt,
-  } as EncryptedCredentials;
-};
-
 export const authService = {
   login,
-  encryptPassword
 };

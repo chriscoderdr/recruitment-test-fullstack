@@ -1,6 +1,6 @@
 import { authService } from "../src/app/service/auth";
 import { PrismaClient } from "@prisma/client";
-import bcrypt, { hash } from "bcrypt";
+import { apiAuthService } from "@components/app/api/service/auth";
 
 const prisma = new PrismaClient();
 
@@ -9,7 +9,7 @@ const main = async () => {
     where: { username: "anthuan" },
     update: {},
     create: {
-      ...(await authService.encryptPassword("Montecristi2022")),
+      ...(await apiAuthService.encryptPassword("Montecristi2022")),
       username: "anthuan",
     },
   });
@@ -18,7 +18,7 @@ const main = async () => {
     where: { username: "chris" },
     update: {},
     create: {
-        ...(await authService.encryptPassword("Medallo1990")),
+        ...(await apiAuthService.encryptPassword("Medallo1990")),
       username: "chris",
     },
   });

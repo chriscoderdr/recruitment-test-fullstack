@@ -4,15 +4,16 @@ import { Button } from "@components/app/components/button/button";
 import { TextField } from "@components/app/components/text-field/text-field";
 import { Form } from "@components/app/components/form/form";
 import { authService } from "@components/app/service/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormFieldError } from "@components/app/models/models";
 
-export default () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<FormFieldError[]>([]);
 
   const onSubmit = () => {
+    resetForm();
     authService.login(username, password).then((res) => {
       if (res.ok) {
         
@@ -30,13 +31,12 @@ export default () => {
 
   const onUsernameChange = (value: string) => {
     setUsername(value);
-    resetForm();
   };
 
   const onPasswordChange = (value: string) => {
     setPassword(value);
-    resetForm();
   };
+
 
   return (
     <div className={styles.login_container}>
@@ -47,12 +47,14 @@ export default () => {
             placeholder={"Username"}
             onChange={onUsernameChange}
             required
+            onBlur={resetForm}
           />
           <TextField
             type={"password"}
             placeholder={"Password"}
             onChange={onPasswordChange}
             required
+            onBlur={resetForm}
           />
           <Button type="submit" value={"Login"} />
         </Form>
@@ -60,3 +62,6 @@ export default () => {
     </div>
   );
 };
+
+
+export default Login;

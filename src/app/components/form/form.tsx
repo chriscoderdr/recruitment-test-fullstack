@@ -18,8 +18,8 @@ export const Form = ({ children, onSubmit, errors }: IFormProps) => {
     <form className={style.form} onSubmit={submit}>
       {errors && errors.length > 0 && (
         <div className={style.errors}>
-          {errors.map((error) => (
-            <p className={style.error}>{error.message}</p>
+          {errors.map((error, index) => (
+            <p key={index + ''} className={style.error}>{error.message}</p>
           ))}
         </div>
       )}

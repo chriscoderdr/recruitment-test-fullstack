@@ -1,11 +1,13 @@
 import { ChangeEvent } from "react";
 import styles from "./text-field.module.css";
+import { debounce } from "debounce";
 
 type ITextFieldProps = {
   type?: "text" | "password";
   placeholder?: string;
   onChange?: (value: string) => void;
   required?: boolean;
+  onBlur?: (value: string) => void;
 };
 
 export const TextField = ({
@@ -13,9 +15,16 @@ export const TextField = ({
   placeholder,
   onChange,
   required,
+  onBlur,
 }: ITextFieldProps) => {
   const change = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange?.(event.target.value);
+    if (onChange) {
+      debounce(() => onChange?.(event.target.value), 300);
+    }
+  };
+
+  const blur = (event: ChangeEvent<HTMLInputElement>) => {
+    onBlur?.(event?.target.value);
   };
 
   return (
@@ -23,7 +32,8 @@ export const TextField = ({
       className={styles.text_field}
       type={type}
       placeholder={placeholder}
-      onBlur={change}
+      onChange={change}
+      onBlur={blur}
       required={required}
     />
   );

@@ -9,7 +9,7 @@ import { Button } from "../components/button/button";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Task1ShowCase() {
-  const [dynamicDataResult, setDynamicDataResult] = useState();
+  const [dynamicDataResult, setDynamicDataResult] = useState<string[]>();
   const [fields, setFields] = useState({});
   const [fieldsCount, setFieldsCount] = useState(0);
   const testData = [
@@ -47,7 +47,7 @@ export default function Task1ShowCase() {
 
   const onRun = () => {
     console.log(fields);
-    const dynamicData = Object.values(fields);
+    const dynamicData: string[] = Object.values(fields);
     const result = arrayUtils.sortExcludingSpecialChars(dynamicData, true);
     setDynamicDataResult(result);
   };
@@ -67,7 +67,7 @@ export default function Task1ShowCase() {
             <br />
             In this case: - `&` must be in position 2 - `$` must be in position
             6 - `%` must be in position 14 The solution needs to be dynamic (if
-            the special character's position changed, keep it as same).
+            the special character&apos;s position changed, keep it as same).
           </p>
 
           <div></div>
