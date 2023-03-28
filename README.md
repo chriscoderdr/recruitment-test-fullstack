@@ -25,7 +25,7 @@ Menu with link to all task can be found at
 Task 3 can be found at [http://localhost:3000/store/admin](http://localhost:3000/store/admin)
 
 ## Docker 
-To run with docker easiest way is to run `./run_docker.sh` file at the root directory.
+To run with docker easiest way is to run `docker-compose up` at the root directory.
 
 ---
 
