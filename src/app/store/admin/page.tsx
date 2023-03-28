@@ -47,7 +47,7 @@ const Admin = () => {
         .catch((e) => {
           setErrors([
             {
-              message: e,
+              message: e.message,
             } as FormFieldError,
           ]);
         });
