@@ -1,7 +1,7 @@
 import {
   Credentials,
   EncryptedCredentials,
-} from "@components/app/models/models";
+} from "@app/models/models";
 
 const login = async (username: string, password: string) => {
   return fetch("/api/store/user/login", {

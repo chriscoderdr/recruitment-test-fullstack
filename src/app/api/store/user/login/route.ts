@@ -1,13 +1,13 @@
-import { apiAuthService } from "@components/app/api/service/auth";
+import { apiAuthService } from "@app/api/service/auth";
 import { NextApiRequest, NextApiResponse } from "next";
 import {
   ApiError,
   ApiResponse,
   Credentials,
-} from "@components/app/models/models";
+} from "@app/models/models";
 import { NextResponse } from "next/server";
 import { serialize } from "cookie";
-import { ErrorCodes } from "@components/app/api/utils/errorCodes";
+import { ErrorCodes } from "@app/api/utils/errorCodes";
 
 export async function POST(req: Request) {
   let errors: ApiError[] = [];

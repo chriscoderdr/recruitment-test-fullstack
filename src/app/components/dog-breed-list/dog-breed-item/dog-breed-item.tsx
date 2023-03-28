@@ -1,4 +1,4 @@
-import { DogBreed } from "@components/app/models/models";
+import { DogBreed } from "@app/models/models";
 import styles from "./dog-breed-item.module.css";
 
 type IDogBreedItemProps = {

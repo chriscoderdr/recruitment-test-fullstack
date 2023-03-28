@@ -2,10 +2,8 @@
 
 import { Product } from "@prisma/client";
 import styles from "./product-carousel.module.css";
-import { ProductItem } from "./product-item/product-item";
-import { useEffect, useRef, useState } from "react";
-import { Icon } from "../icon/icon";
-import { CarouselControls } from "./carousel-controls/carousel-controls";
+import { ProductItem } from "@components/product-item/product-item";
+import { useEffect, useState } from "react";
 import { Carousel } from "../carousel/carousel";
 
 type IProductListProps = {

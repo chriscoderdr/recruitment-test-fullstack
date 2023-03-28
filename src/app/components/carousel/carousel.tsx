@@ -2,7 +2,7 @@
 
 import styles from "./carousel.module.css";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
-import { CarouselControls } from "../product-carousel/carousel-controls/carousel-controls";
+import { CarouselControls } from "./carousel-controls/carousel-controls";
 
 type ICarouselProps = {
   children: ReactNode | ReactNode[];

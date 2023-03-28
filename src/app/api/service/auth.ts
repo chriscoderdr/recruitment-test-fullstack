@@ -1,7 +1,7 @@
 import {
   AuthResult,
   EncryptedCredentials,
-} from "@components/app/models/models";
+} from "@app/models/models";
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { dbService } from "./db";

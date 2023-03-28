@@ -1,4 +1,4 @@
-import { FormFieldError } from "@components/app/models/models";
+import { FormFieldError } from "@app/models/models";
 import { FormEvent } from "react";
 import style from "./form.module.css";
 

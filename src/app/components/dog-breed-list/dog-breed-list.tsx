@@ -1,4 +1,4 @@
-import { DogBreed } from "@components/app/models/models";
+import { DogBreed } from "@app/models/models";
 import { DogBreedItem } from "./dog-breed-item/dog-breed-item";
 import styles from "./dog-breed-list.module.css";
 

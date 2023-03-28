@@ -1,11 +1,11 @@
 "use client";
 import styles from "./page.module.css";
-import { Button } from "@components/app/components/button/button";
-import { TextField } from "@components/app/components/text-field/text-field";
-import { Form } from "@components/app/components/form/form";
-import { authService } from "@components/app/service/auth";
+import { Button } from "@app/components/button/button";
+import { TextField } from "@app/components/text-field/text-field";
+import { Form } from "@app/components/form/form";
+import { authService } from "@app/service/auth";
 import { useEffect, useState } from "react";
-import { FormFieldError } from "@components/app/models/models";
+import { FormFieldError } from "@app/models/models";
 import { useRouter } from 'next/navigation';
 
 const Login = () => {
