@@ -29,6 +29,7 @@ export const TextField = ({
 
   return (
     <input
+      autoComplete="off"
       className={styles.text_field}
       type={type}
       placeholder={placeholder}

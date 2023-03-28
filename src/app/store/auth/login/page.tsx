@@ -6,10 +6,12 @@ import { Form } from "@components/app/components/form/form";
 import { authService } from "@components/app/service/auth";
 import { useEffect, useState } from "react";
 import { FormFieldError } from "@components/app/models/models";
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
   const [errors, setErrors] = useState<FormFieldError[]>([]);
 
   const onSubmit = () => {
@@ -18,6 +20,9 @@ const Login = () => {
       .login(username, password)
       .then((res) => {
         if (res.ok) {
+          res.json().then((data) => {
+            router.push("/store");
+          });
         } else {
           res.json().then((data) => {
             setErrors(data.errors);
