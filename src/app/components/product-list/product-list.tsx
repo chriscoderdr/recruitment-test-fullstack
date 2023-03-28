@@ -28,16 +28,24 @@ export const ProductList = ({ products }: IProductListProps) => {
   }, []);
 
   const getItemWidth = () => {
-    return itemRef.current == null ? 0 : itemRef.current.clientWidth;
+    return itemRef.current == null ? 0 : itemRef.current.clientWidth + 16;
+  };
+
+  const getContainerWidth = () => {
+    return containerRef.current == null ? 0 : containerRef.current.clientWidth;
+  };
+
+  const getItemsPerPage = () => {
+    return getContainerWidth() / getItemWidth();
+  };
+
+  const totalOfPages = () => {
+    return products.length / getItemsPerPage();
   };
 
   const updateOffset = (newOffset: number) => {
     let offset = newOffset;
-    if (
-      containerRef.current != null &&
-      newOffset - getItemWidth() * (products.length - products.length / 2) >
-        containerRef.current?.clientWidth
-    ) {
+    if (newOffset > getItemWidth() * getItemsPerPage() * (totalOfPages() - 1)) {
       offset = 0;
     }
     setOffset(offset);
@@ -45,7 +53,7 @@ export const ProductList = ({ products }: IProductListProps) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      updateOffset(offset + getItemWidth() + 16);
+      updateOffset(offset + getItemWidth());
     }, 1600);
 
     return () => {
