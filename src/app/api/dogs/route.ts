@@ -1,4 +1,4 @@
-import { dogService } from "@components/app/service/dogs";
+import { dogService } from "@app/service/dogs";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export async function GET(req: NextApiRequest) {

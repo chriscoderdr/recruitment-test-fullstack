@@ -1,0 +1,17 @@
+.carousel_list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 16px;
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+
+.carousel_item {
+  transition: transform 1.5s;
+}

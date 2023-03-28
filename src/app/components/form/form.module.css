@@ -1,0 +1,33 @@
+.form {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    width: auto;
+    min-width: 250px;
+}
+
+.error {
+    background-color: #eb0000;
+    display: block;
+    box-sizing: border-box;
+    width: auto;
+    min-width: 100%;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0.5em;
+}
+
+.errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}

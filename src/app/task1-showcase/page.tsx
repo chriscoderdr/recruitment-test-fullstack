@@ -4,11 +4,12 @@ import { Inter } from "next/font/google";
 import styles from "./page.module.css";
 import { arrayUtils } from "../utils/arrayUtils";
 import { useState } from "react";
+import { Button } from "../components/button/button";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Task1ShowCase() {
-  const [dynamicDataResult, setDynamicDataResult] = useState();
+  const [dynamicDataResult, setDynamicDataResult] = useState<string[]>();
   const [fields, setFields] = useState({});
   const [fieldsCount, setFieldsCount] = useState(0);
   const testData = [
@@ -33,11 +34,10 @@ export default function Task1ShowCase() {
   const result = arrayUtils.sortExcludingSpecialChars(testData, true);
 
   const onAddField = () => {
-    console.log(fieldsCount);
     setFieldsCount(fieldsCount + 1);
   };
 
-  const onFieldChange = (index, value) => {
+  const onFieldChange = (index: number, value: string) => {
     setFields({
       ...fields,
       [index]: value,
@@ -45,8 +45,7 @@ export default function Task1ShowCase() {
   };
 
   const onRun = () => {
-    console.log(fields);
-    const dynamicData = Object.values(fields);
+    const dynamicData: string[] = Object.values(fields);
     const result = arrayUtils.sortExcludingSpecialChars(dynamicData, true);
     setDynamicDataResult(result);
   };
@@ -66,7 +65,7 @@ export default function Task1ShowCase() {
             <br />
             In this case: - `&` must be in position 2 - `$` must be in position
             6 - `%` must be in position 14 The solution needs to be dynamic (if
-            the special character's position changed, keep it as same).
+            the special character&apos;s position changed, keep it as same).
           </p>
 
           <div></div>
@@ -92,18 +91,8 @@ export default function Task1ShowCase() {
               <h2>Run online</h2>
               <div>
                 <div>
-                  <input
-                    type="button"
-                    className={styles.button}
-                    value="Add input"
-                    onClick={onAddField}
-                  />
-                  <input
-                    type="button"
-                    className={styles.button}
-                    value="Run"
-                    onClick={onRun}
-                  />
+                  <Button value={"Add input"} onClick={onAddField} />
+                  <Button value={"Run"} onClick={onRun} />
                 </div>
                 <br />
                 <h3>Result</h3>

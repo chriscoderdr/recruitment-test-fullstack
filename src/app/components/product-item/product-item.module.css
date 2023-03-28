@@ -1,0 +1,29 @@
+.product_item .product_image {
+  min-width: 250px;
+  width: auto;
+  height: auto;
+}
+
+.product_item {
+  min-width: 250px;
+  width: auto;
+  text-align: center;
+}
+
+.product_item .product_name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.product_item .product_price {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.product_item .product_description {
+  font-size: 14px;
+  max-width: 250px;
+  word-break: break-all;
+  line-break: anywhere;
+}

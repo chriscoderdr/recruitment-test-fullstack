@@ -1,5 +1,7 @@
+import { DogBreed } from "../models/models";
+
 export const getDogBreeds = async () => {
-  return Promise.resolve([
+  return (await Promise.resolve([
     {
       name: "affenpinscher",
       sub_breeds: [],
@@ -540,7 +542,7 @@ export const getDogBreeds = async () => {
       sub_breeds: ["irish"],
       image: "https://images.dog.ceo/breeds/wolfhound-irish/n02090721_2536.jpg",
     },
-  ]);
+  ])) as DogBreed[];
 };
 
 export const dogService = {

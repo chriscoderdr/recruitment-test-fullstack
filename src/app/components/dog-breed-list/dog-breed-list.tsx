@@ -1,10 +1,19 @@
+import { DogBreed } from "@app/models/models";
 import { DogBreedItem } from "./dog-breed-item/dog-breed-item";
-import styles from './dog-breed-list.module.css';
+import styles from "./dog-breed-list.module.css";
 
-export const DogBreedList = ({dogs}) => {
+type IDogBreedListProps = {
+  dogBreeds: DogBreed[];
+};
+
+export const DogBreedList = ({ dogBreeds }: IDogBreedListProps) => {
   return (
     <div className={styles.dog_list}>
-      {dogs ? dogs.map((dog) => <DogBreedItem key={dog.name} dog={dog} />) : ''}
+      {dogBreeds
+        ? dogBreeds.map((dogBreed) => (
+            <DogBreedItem key={dogBreed.name} dogBreed={dogBreed} />
+          ))
+        : ""}
     </div>
   );
 };

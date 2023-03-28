@@ -22,10 +22,9 @@ Menu with link to all task can be found at
 
 [http://localhost:3000/](http://localhost:3000/)
 
+Task 3 can be found at [http://localhost:3000/store/admin](http://localhost:3000/store/admin)
 
 ---
-
-
 
 <p align="center">
   <a href="https://minnekdigital.com/">
