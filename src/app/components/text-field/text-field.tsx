@@ -5,12 +5,14 @@ type ITextFieldProps = {
   type?: "text" | "password";
   placeholder?: string;
   onChange?: (value: string) => void;
+  required?: boolean
 };
 
 export const TextField = ({
   type = "text",
   placeholder,
   onChange,
+  required
 }: ITextFieldProps) => {
   const change = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(event.target.value);
@@ -21,7 +23,8 @@ export const TextField = ({
       className={styles.text_field}
       type={type}
       placeholder={placeholder}
-      onChange={change}
+      onBlur={change}
+      required={required}
     />
   );
 };
