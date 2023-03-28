@@ -8,7 +8,7 @@
   min-width: 250px;
   width: auto;
   text-align: center;
-  transition: transform 300ms;
+  transition: transform 1.5s;
 }
 
 .product_item .product_name {

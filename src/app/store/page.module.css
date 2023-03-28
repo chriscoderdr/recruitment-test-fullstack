@@ -1,5 +1,8 @@
 .main_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 6rem;
+  padding-left: 6rem;
+  min-height: 100vh;
 }

@@ -1,12 +1,12 @@
 .product_list {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: row;
   gap: 16px;
   position: relative;
   width: auto;
   height: auto;
   overflow: hidden;
-  min-width: 80%;
+  flex-wrap: nowrap;
 }
