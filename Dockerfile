@@ -1,44 +1,42 @@
-# Install dependencies only when needed
-FROM node:17-alpine AS deps
-RUN apk add --no-cache libc6-compat
-WORKDIR /app
-COPY package.json package-lock.json ./
-COPY prisma ./prisma/
-RUN npm install
-RUN npm rebuild bcrypt 
-RUN npx prisma generate
-
-# Rebuild the source code only when needed
-FROM node:17-alpine AS builder
+from node:18-alpine as dependencies
 
 WORKDIR /app
 
-COPY --from=deps /app/node_modules ./node_modules
+COPY package.json ./
+RUN yarn
+
+
+FROM node:18-alpine as build
+
+WORKDIR /app
+
+COPY --from=dependencies app/node_modules ./node_modules
 
 COPY . .
 
+RUN npx prisma generate
 
-# Production image, copy all the files and run next
-FROM node:17-alpine AS runner
+RUN yarn build
+
+
+FROM node:18-alpine as deploy
+
 WORKDIR /app
 
 ENV NODE_ENV production
 
-RUN addgroup --system --gid 1001 appgroup
-RUN adduser --system --uid 1001 appuser
+COPY --from=build /app/public ./public
 
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
+COPY --from=build /app/package.json ./package.json
 
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-# COPY --from=builder --chown=appuser:appgroup /app/.next/standalone ./
-# COPY --from=builder --chown=appuser:appgroup /app/.next/static ./.next/static
+COPY --from=build /app/.next/standalone ./
 
-USER appuser
+COPY --from=build /app/.next/static ./.next/static
+
 
 EXPOSE 3000
 
 ENV PORT 3000
 
-# RUN npx nextjs build
+CMD ["node", "server.js"]
+
