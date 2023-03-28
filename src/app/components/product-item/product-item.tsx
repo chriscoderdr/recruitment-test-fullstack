@@ -20,7 +20,7 @@ export const ProductItem = React.forwardRef(function ProductItem(
     >
       <img
         className={styles.product_image}
-        src={"https://placehold.it/200x200"}
+        src={'/' +product?.image}
         alt="product image"
       />
       <p className={styles.product_name}>{product?.name}</p>
