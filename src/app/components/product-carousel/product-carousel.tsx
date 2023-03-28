@@ -5,6 +5,7 @@ import styles from "./product-carousel.module.css";
 import { ProductItem } from "./product-item/product-item";
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "../icon/icon";
+import { CarouselControls } from "./carousel-controls/carousel-controls";
 
 type IProductListProps = {
   products: Product[];
@@ -118,10 +119,10 @@ export const ProductCarousel = ({ products }: IProductListProps) => {
             }}
           />
         ))}
-      <div className={styles.controls}>
-        <Icon icon="backward" onClick={onMoveBackward} />
-        <Icon icon="forward" onClick={onMoveForward} />
-      </div>
+      <CarouselControls
+        onMoveBackward={onMoveBackward}
+        onMoveForward={onMoveForward}
+      />
     </div>
   );
 };
