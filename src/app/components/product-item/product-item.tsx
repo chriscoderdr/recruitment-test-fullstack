@@ -12,6 +12,13 @@ export const ProductItem = React.forwardRef(function ProductItem(
   { product, style, className }: IProductItemProps,
   ref: Ref<HTMLDivElement>
 ) {
+  const excerptDescription = () => {
+    if (product && product.description.length > 255) {
+      return product.description.slice(0, 255) + '...';
+    }
+    return product?.description;
+  };
+
   return (
     <div
       className={`${styles.product_item} ${className}`}
@@ -20,12 +27,12 @@ export const ProductItem = React.forwardRef(function ProductItem(
     >
       <img
         className={styles.product_image}
-        src={'/' +product?.image}
+        src={product?.image}
         alt="product image"
       />
       <p className={styles.product_name}>{product?.name}</p>
       <p className={styles.product_price}>{product?.price + ""}</p>
-      <p className={styles.product_description}>{product?.description}</p>
+      <p className={styles.product_description}>{excerptDescription()}</p>
     </div>
   );
 });

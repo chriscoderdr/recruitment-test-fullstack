@@ -1,3 +1,7 @@
+## Users
+
+tests users are seed in prisma/seed.ts
+
 ## How to run
 
 Task 1
@@ -11,6 +15,11 @@ Task 2 & 3
 Run `npx prisma generate && npm build && npm run start`
 
 Web server will be started at port 3000.
+
+If you run with docker, server is at port 80.
+
+[https://localhost][https://localhost]
+
 
 [http://localhost:3000](http://localhost:3000)
 
@@ -26,6 +35,17 @@ Task 3 can be found at [http://localhost:3000/store/admin](http://localhost:3000
 
 ## Docker 
 To run with docker easiest way is to run `docker-compose up` at the root directory.
+
+
+## Testing
+
+To run unit test
+
+`npm test`
+
+To run component testing with cypress
+
+`npm run cypress:open`
 
 ---
 

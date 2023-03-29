@@ -55,8 +55,8 @@ export async function PUT(req: NextRequest) {
             authorId: (await user).id,
           },
         });
-        const pathPrefix = 'public/'
-        const imagePath = `uploads/products/${newProduct.id}.png`;
+        const pathPrefix = 'public'
+        const imagePath = `/uploads/products/${newProduct.id}.png`;
         await dbService.getDB().product.update({
           where: { id: newProduct.id },
           data: {
@@ -82,10 +82,9 @@ export async function PUT(req: NextRequest) {
       response.cookies.delete("access_token");
       return response;
     }
-  } catch (e) {
-    console.error(e);
+  } catch (e: any) {
     errors.push({
-      message: e,
+      message: e.message,
     } as ApiError);
   }
   const response = NextResponse.json({

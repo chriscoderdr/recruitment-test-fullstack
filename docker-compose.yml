@@ -1,7 +1,33 @@
 version: '3'
 services:
+  db:
+    image: postgres:14.1-alpine
+    container_name: chriscodetestDB
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=chriscodetest
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+  webserver:
+    image: nginx:alpine
+    container_name: chriscodetestWebserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./public:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
   app:
-    image: christest-docker
+    image: chriscodetest
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@host.docker.internal:5432/chriscodetest
+      - NEXT_PUBLIC_BASE_URL = "http://localhost/"
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,3 +37,6 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+volumes:
+  db:
+    driver: local
