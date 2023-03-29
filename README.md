@@ -12,6 +12,10 @@ Task 1 will be run and output printed to the console. Also can be found at the w
 
 Task 2 & 3
 
+RUN `./run_docker`
+
+OR
+
 Run `npx prisma generate && npm build && npm run start`
 
 Web server will be started at port 3000.
