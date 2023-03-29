@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: christest-docker
+    image: chriscodetest
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,3 +11,16 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    enviroment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
