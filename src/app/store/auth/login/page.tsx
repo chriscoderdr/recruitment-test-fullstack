@@ -29,8 +29,8 @@ const Login = () => {
           });
         }
       })
-      .catch((err) => {
-        setErrors([{ message: err }]);
+      .catch((e: any) => {
+        setErrors([{ message: e.mesage }]);
       });
   };
 

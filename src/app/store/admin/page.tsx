@@ -17,6 +17,7 @@ const Admin = () => {
   const formRef = useRef<HTMLFormElement>();
   const [inProgress, setInProgress] = useState(false);
   const [errors, setErrors] = useState<FormFieldError[]>();
+  const router = useRouter();
 
   const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0 && !inProgress) {
@@ -44,7 +45,7 @@ const Admin = () => {
             setErrors(resp.errors);
           }
         })
-        .catch((e) => {
+        .catch((e: any) => {
           setErrors([
             {
               message: e.message,
@@ -64,6 +65,10 @@ const Admin = () => {
     setErrors([]);
     formRef.current?.reset();
   };
+
+  const onViewProducts = () => {
+    router.push('/store')
+  }
 
   return (
     <div className={styles.container}>
@@ -110,6 +115,7 @@ const Admin = () => {
           </label>
           <br />
           <Button type="submit" value={"Add product"} />
+          <Button type="button" value={"View products"} onClick={onViewProducts} />
         </Form>
       </div>
     </div>

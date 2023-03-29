@@ -82,7 +82,7 @@ export async function PUT(req: NextRequest) {
       response.cookies.delete("access_token");
       return response;
     }
-  } catch (e) {
+  } catch (e: any) {
     errors.push({
       message: e.message,
     } as ApiError);

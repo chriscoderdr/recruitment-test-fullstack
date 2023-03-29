@@ -10,13 +10,13 @@ describe("<Form />", () => {
     let errors: FormFieldError[] = [];
 
     errors.push({
-      message: 'Test Error'
-    })
+      message: "Test Error",
+    });
 
     try {
-      throw Error('Exception errror')
-    } catch (e) {
-      errors.push({message: e.message});
+      throw Error("Exception errror");
+    } catch (e: any) {
+      errors.push({ message: e.message });
     }
 
     cy.mount(

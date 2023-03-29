@@ -1,11 +1,12 @@
-const getFullPath = (path: string) => {
-    if (path.startsWith("http" || path.startsWith("https"))) {
-        return path;
-    }
-    return process.env.PUBLIC_URL + path;
+const publicUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-}
+const getFullPath = (path: string) => {
+  if (path.startsWith("http" || path.startsWith("https"))) {
+    return path;
+  }
+  return publicUrl + path;
+};
 
 export const urlUtil = {
-    getFullPath
-}
+  getFullPath,
+};

@@ -1,9 +1,22 @@
+"use client";
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { urlUtil } from "./utils/urlUtil";
 
-export default async function Home() {
-  const dogs = (await (await fetch(urlUtil.getFullPath("/api/dogs"))).json())
-    .data;
+export default function Home() {
+  const [dogs, setDogs] = useState();
+  useEffect(() => {
+    fetch(urlUtil.getFullPath("/api/dogs"))
+      .then(async (res) => {
+        const data = (await res.json()).data;
+        if (res.ok && data) {
+          setDogs(data);
+        }
+      })
+      .catch((e: any) => {
+        console.log(e.message);
+      });
+  }, []);
   return (
     <main className={styles.main}>
       <div className={styles.title_container}>
