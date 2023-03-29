@@ -12,10 +12,22 @@ services:
       - '5432:5432'
     volumes:
       - db:/var/lib/postgresql/data
+  webserver:
+    image: nginx:alpine
+    container_name: chriscodetestWebserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./public:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
   app:
     image: chriscodetest
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@host.docker.internal:5432/chriscodetest
+      - NEXT_PUBLIC_BASE_URL = "http://localhost/"
     build:
       context: .
       dockerfile: Dockerfile

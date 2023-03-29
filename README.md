@@ -16,6 +16,10 @@ Run `npx prisma generate && npm build && npm run start`
 
 Web server will be started at port 3000.
 
+If you run with docker, server is at port 80.
+
+[https://localhost][https://localhost]
+
 
 [http://localhost:3000](http://localhost:3000)
 
