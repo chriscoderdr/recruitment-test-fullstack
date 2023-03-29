@@ -2,12 +2,13 @@ import { Inter } from "next/font/google";
 import styles from "./page.module.css";
 import { DogBreedList } from "../components/dog-breed-list/dog-breed-list";
 import { DogBreed } from "../models/models";
+import { urlUtil } from "@app/utils/urlUtil";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default async function DogBreeds() {
   const dogBreeds = (
-    await (await fetch("http://localhost:3000/api/dogs")).json()
+    await (await fetch(urlUtil.getFullPath("/api/dogs"))).json()
   ).data as DogBreed[];
   return (
     <main className={inter.className}>

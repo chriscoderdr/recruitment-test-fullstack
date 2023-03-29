@@ -12,6 +12,7 @@ Run `npx prisma generate && npm build && npm run start`
 
 Web server will be started at port 3000.
 
+
 [http://localhost:3000](http://localhost:3000)
 
 Task 1 can be found online at [http://localhost:3000/task1-showcase](http://localhost:3000/task1-showcase)
@@ -26,6 +27,17 @@ Task 3 can be found at [http://localhost:3000/store/admin](http://localhost:3000
 
 ## Docker 
 To run with docker easiest way is to run `docker-compose up` at the root directory.
+
+
+## Testing
+
+To run unit test
+
+`npm test`
+
+To run component testing with cypress
+
+`npm run cypress:open`
 
 ---
 

@@ -1,7 +1,8 @@
 import styles from "./page.module.css";
+import { urlUtil } from "./utils/urlUtil";
 
 export default async function Home() {
-  const dogs = (await (await fetch("http://localhost:3000/api/dogs")).json())
+  const dogs = (await (await fetch(urlUtil.getFullPath("/api/dogs"))).json())
     .data;
   return (
     <main className={styles.main}>

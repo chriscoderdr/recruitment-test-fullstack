@@ -55,8 +55,8 @@ export async function PUT(req: NextRequest) {
             authorId: (await user).id,
           },
         });
-        const pathPrefix = 'public/'
-        const imagePath = `uploads/products/${newProduct.id}.png`;
+        const pathPrefix = 'public'
+        const imagePath = `/uploads/products/${newProduct.id}.png`;
         await dbService.getDB().product.update({
           where: { id: newProduct.id },
           data: {

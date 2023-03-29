@@ -12,7 +12,8 @@
     "lint": "next lint",
     "test": "jest --watch",
     "task1": "cross-env TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} ts-node src/app/cli/cli.ts",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "npx cypress run --component --record --key dd823a50-02a6-4d2b-acc6-25f51d831ee2"
   },
   "dependencies": {
     "@next/font": "^13.2.4",
