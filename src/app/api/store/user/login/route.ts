@@ -52,6 +52,7 @@ export async function POST(req: Request) {
       }
     }
   } catch (e) {
+    console.error(e);
     errors.push({
       message: 'Invalid request',
       statusCode: ErrorCodes.InvalidRequest 

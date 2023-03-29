@@ -1,3 +1,7 @@
+## Users
+
+tests users are seed in prisma/seed.ts
+
 ## How to run
 
 Task 1

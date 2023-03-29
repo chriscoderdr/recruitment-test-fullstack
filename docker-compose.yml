@@ -15,7 +15,7 @@ services:
   app:
     image: chriscodetest
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@localhost:5432/chriscodetest
+      - DATABASE_URL=postgresql://postgres:postgres@host.docker.internal:5432/chriscodetest
     build:
       context: .
       dockerfile: Dockerfile
