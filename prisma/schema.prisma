@@ -6,24 +6,24 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
   id           Int       @id @default(autoincrement())
   username     String    @unique
-  passwordHash String
-  passwordSalt String
+  passwordHash String    @db.VarChar(255)
+  passwordSalt String    @db.VarChar(255)
   Product      Product[]
 }
 
 model Product {
   id          Int     @id @default(autoincrement())
-  name        String
+  name        String  @db.VarChar(255)
   price       Decimal
   description String
-  image       String
+  image       String  @db.VarChar(255)
   author      User    @relation(fields: [authorId], references: [id])
   authorId    Int
 }

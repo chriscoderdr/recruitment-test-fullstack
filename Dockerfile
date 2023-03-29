@@ -55,6 +55,10 @@ COPY --from=builder --chown=nextjs:nodejs /app/src ./src
 COPY --from=builder --chown=nextjs:nodejs /app/next.config.js ./next.config.js
 COPY --from=builder --chown=nextjs:nodejs /app/.env ./.env
 
+COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
+
+COPY --from=builder --chown=nextjs:nodejs /app/run.sh ./run.sh
+
 
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
@@ -65,4 +69,5 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["yarn", "start"]
+
+CMD ["sh", "run.sh"]
