@@ -1,3 +1,5 @@
+rm -rf node_modules
+
 docker rm $(docker stop $(docker ps -a -q --filter ancestor=chriscodetest --format="{{.ID}}"))
 
 docker image rm chriscodetest
